@@ -1,0 +1,279 @@
+icon "TritonLord.tga"
+description "Adds a new playable class, the Triton Lord."
+
+
+
+newritpow #Ocean Tribal
+newritual     "Lesser Ritual of Mastery"                                  #  91
+descr "This ritual grants the caster a new first level ritual."
+level                  1
+cost              3   25 # 25 Fungus
+newrit                 1 # Caster will learn a new ritual of level 1.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+free                     # Always start with this ritual in addition to the others.
+
+
+newritual     "Ritual of Mastery"                                         #  92
+descr "This ritual grants the caster a new second level ritual.  If the caster is currently unable to cast second level rituals, it will be leveled up as well."
+level                  1
+cost              3  150 # 150 Fungus
+terr                 -311 # Required terrain: Kelp Forest
+newrit                 2 # Caster will learn a new ritual of level 2.
+levelup                2 # Level up to new monster (determined by mastery command on monster) if below level 2.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+rebatelvl              2 # Ritual can be cast for half price if caster's power level is greater than or equal to 2.
+free                     # Always start with this ritual in addition to the others.
+
+
+newritual     "Ritual of Grand Mastery"                                   #  93
+descr "This ritual grants the caster a new third level ritual.  If the caster is currently unable to cast third level rituals, it will be leveled up as well."
+level                  2
+cost              3  600 # 600 Fungus
+terr                 -311 # Required terrain: Kelp Forest
+newrit                 3 # Caster will learn a new ritual of level 3.
+levelup                3 # Level up to new monster (determined by mastery command on monster) if below level 3.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+rebatelvl              3 # Ritual can be cast for half price if caster's power level is greater than or equal to 3.
+free                     # Always start with this ritual in addition to the others.
+nomonplayerreq "Herald of the Seas"
+
+
+
+newritpow #OceanElementalism
+newritual     "Lesser Ritual of Mastery"                                  # 442
+descr "This ritual grants the caster a new first level ritual."
+level                  1
+cost              8   15 # 15 Sapphires
+newrit                 1 # Caster will learn a new ritual of level 1.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+free                     # Always start with this ritual in addition to the others.
+
+
+newritual     "Ritual of Mastery"                                         # 443
+descr "This ritual grants the caster a new second level ritual.  If the caster is currently unable to cast second level rituals, it will be leveled up as well."
+level                  1
+cost              8   50 # 50 Sapphires
+newrit                 2 # Caster will learn a new ritual of level 2.
+levelup                2 # Level up to new monster (determined by mastery command on monster) if below level 2.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+rebatelvl              2 # Ritual can be cast for half price if caster's power level is greater than or equal to 2.
+free                     # Always start with this ritual in addition to the others.
+
+
+newritual     "Ritual of Grand Mastery"                                   # 444
+descr "This ritual grants the caster a new third level ritual.  If the caster is currently unable to cast third level rituals, it will be leveled up as well."
+level                  2
+cost              8  150 # 150 Sapphires
+newrit                 3 # Caster will learn a new ritual of level 3.
+levelup                3 # Level up to new monster (determined by mastery command on monster) if below level 3.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+rebatelvl              3 # Ritual can be cast for half price if caster's power level is greater than or equal to 3.
+free                     # Always start with this ritual in addition to the others.
+nomonplayerreq "Triton High Lord"
+
+
+
+
+
+
+newmonster    "Triton High Lord"
+descr "The Tritons are almost human in appearance, but they have a fishlike skin and their legs end in fins.  It is likely that the first of this race were human fishermen who were unlucky enough to anger some fish god.  The fish god then cursed the fishermen to live forever under the surface and thus the Tritons were born."
+# sprite number            32026
+copyspr "Triton King"
+armor                          0 # Armor.
+hp                            45 # Hit Points.
+str                            7 # Strength.
+mor                            6 # Morale.
+mr                             8 # Magic Resistance.
+rank                          -1 # Back rank.
+spellweapon                4   2 # Hydromancy at level 2.
+meleeweapon                8  26 # Trident: d15 Pierce damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+noland                           # Aquatic: The monster cannot move onto land.
+power                      0  3 # Oceanic, Level 3
+allitemslots
+gathergems
+seegems
+gatherherbs
+farsightsea
+
+newmonster    "Triton Lord"
+descr "The Tritons are almost human in appearance, but they have a fishlike skin and their legs end in fins.  It is likely that the first of this race were human fishermen who were unlucky enough to anger some fish god.  The fish god then cursed the fishermen to live forever under the surface and thus the Tritons were born."
+# sprite number            32026
+copyspr "Triton King"
+armor                          0 # Armor.
+hp                            45 # Hit Points.
+str                            7 # Strength.
+mor                            6 # Morale.
+mr                             8 # Magic Resistance.
+rank                          -1 # Back rank.
+spellweapon                4   2 # Hydromancy at level 2.
+meleeweapon                8  26 # Trident: d15 Pierce damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+noland                           # Aquatic: The monster cannot move onto land.
+power                      0  2 # Warlock of Water, level 2.
+mastery -1
+allitemslots
+gathergems
+seegems
+gatherherbs
+farsightsea
+
+newmonster    "Herald of the Seas"                                              #  684
+descr "Apparently the fishes also have an organized religion in order to worship their fish god in the proper way.  The Bishop of the Seas is the proof of this and it acts like the fish god's representative in Elysium, freeing up the busy fish god to deal with more important matters."
+# sprite number            32018
+copyspr "Bishop Fish"
+armor                          0 # Armor.
+hp                             9 # Hit Points.
+str                            5 # Strength.
+mor                            4 # Morale.
+mr                             7 # Magic Resistance.
+rank                          -1 # Back rank.
+spellweapon               25   1 # Prayers at level 1.
+meleeweapon                1   0 # Fist: d2 Blunt damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+desert3                          # Hates deserts.
+animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
+power                      -1  3 # Ocean Beasts, Level 3.
+holy
+unique 1
+allitemslots
+gathergems
+seegems
+gatherherbs
+
+newmonster    "Cardinal of the Seas"                                              #  684
+descr "Apparently the fishes also have an organized religion in order to worship their fish god in the proper way.  The Bishop of the Seas is the proof of this and it acts like the fish god's representative in Elysium, freeing up the busy fish god to deal with more important matters."
+# sprite number            32018
+copyspr "Bishop Fish"
+armor                          0 # Armor.
+hp                             9 # Hit Points.
+str                            5 # Strength.
+mor                            4 # Morale.
+mr                             7 # Magic Resistance.
+rank                          -1 # Back rank.
+spellweapon               25   1 # Prayers at level 1.
+meleeweapon                1   0 # Fist: d2 Blunt damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+desert3                          # Hates deserts.
+animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
+mastery -1
+power                      -1  2 # Ocean Beasts, Level 2.
+holy
+allitemslots
+gathergems
+seegems
+gatherherbs
+
+newmonster    "Bishop of the Seas"                                              #  684
+descr "Apparently the fishes also have an organized religion in order to worship their fish god in the proper way.  The Bishop of the Seas is the proof of this and it acts like the fish god's representative in Elysium, freeing up the busy fish god to deal with more important matters."
+# sprite number            32018
+copyspr "Bishop Fish"
+armor                          0 # Armor.
+hp                             9 # Hit Points.
+str                            5 # Strength.
+mor                            4 # Morale.
+mr                             7 # Magic Resistance.
+rank                          -1 # Back rank.
+spellweapon               25   1 # Prayers at level 1.
+meleeweapon                1   0 # Fist: d2 Blunt damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+desert3                          # Hates deserts.
+animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
+mastery -1
+power                      -1  1 # Ocean Beasts, Level 1.
+allitemslots
+gathergems
+seegems
+gatherherbs
+
+newmonster    "Ichtyid Scout"                                           #  681
+descr "Ichtyids are large fish beings with legs and arms that make them able to operate on land.  They have the strength and size of a fish, but despite this they are not quite as stupid as a normal fish and are able to utilize tools and weapons.  Ichtyids often raid fishing villages and try to steal all the tools and supplies they can get hold of.  The raiders are not easy to kill, but the reward for killing them is not bad either.  A smoked Ichtyid is a real treat and is large enough for a small village to feast on."
+# sprite number            32012
+copyspr "Ichtyid Raider"
+armor                          0 # Armor.
+hp                            11 # Hit Points.
+str                            5 # Strength.
+mor                            5 # Morale.
+mr                             3 # Magic Resistance.
+rank                           1 # Front rank.
+meleeweapon       4294967296 125 # Net: Special damage: Stuck in Net.
+meleeweapon                1   4 # Spear: d5 Pierce damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+coastal                          # Always stays within 1 square (including diagonals) of both land and water.
+desert3                          # Hates deserts.
+animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
+acutesenses
+
+newclass
+setclassname "Triton Lord"
+classdescr "Once cursed by the Gods of the Fish to be trapped within the Oceans, it is time to rule the lands once more."
+classabdescr "Utilizes Hydromancy summoning alongside water-based movement for a unique playstyle."
+hometerr 218
+
+clearstartterr
+addstartterr 45
+addstartterr 4
+addstartterr 311
+addstartterr 171
+likescoast 15
+
+clearstartunits
+addstartunits "Triton" 5
+addstartunits "Ichtyid Raider" 5
+addstartunits "Ichtyid Warrior" 5
+setmaincom "Triton Lord"
+addstartcom "Bishop of the Seas"
+
+
+clearrec
+nostdtroops
+
+addunitrec "Triton" 100 5 50 0 0
+addunitrec "Triton Trooper" 100 5 50 0 0
+recxcost 8 5
+
+addunitrec "Ichtyid Raider" 100 5 25 0 0
+addunitrec "Ichtyid Scout" 10 1 25 0 0
+addunitrec "Ichtyid Warrior" 100 5 25 0 0
+recxcost 8 5
+
+addunitrec "Kelpman" 100 5 25 0 0
+recxcost 8 25
+
+
+playerevent
++turnnbr -1
++class -2 "Triton Lord"
++ownsloctarg -2 218
+killsquare
+alterterrain 10
+newunits 24 "Siren"
+# randloc 0 68
+randloc 0 311
+alterterrain 218
+newunits -2 "c*Triton Lord & c*Bishop of the Seas & 5*Triton & 5*Ichtyid Raider & 5*Ichtyid Warrior"
+endevent
+
+playerevent
++turnnbr -1
++class -2 "Triton Lord"
++ownsloctarg -2 218
+scatterloc 2
+-terrain 218
+# alterterrain 45
+alterterrain 335
+killsquare
+newunits -1 "Sea Dog"
+endevent
+
+playerevent
++turnnbr -1
++class -2 "Triton Lord"
++ownsloctarg -2 218
+scatterloc 2
+-terrain 218
+killsquare
+alterterrain 311
+newunits -1 "Sea Dog"
+endevent
