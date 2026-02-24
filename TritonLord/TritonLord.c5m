@@ -262,7 +262,7 @@ rarestart                # Reduced chance of starting with this ritual.
 newmonster    "Triton High Lord"
 descr "The Tritons are almost human in appearance, but they have a fishlike skin and their legs end in fins.  It is likely that the first of this race were human fishermen who were unlucky enough to anger some fish god.  The fish god then cursed the fishermen to live forever under the surface and thus the Tritons were born."
 # sprite number            32026
-copyspr "Triton King"
+spr1 "triton_high_lord.tga"
 armor                          0 # Armor.
 hp                            45 # Hit Points.
 str                            7 # Strength.
@@ -393,6 +393,29 @@ desert3                          # Hates deserts.
 animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
 acutesenses
 
+newmonster    "Triton Scout"                                                   #  686
+descr "The Tritons are almost human in appearance, but they have a fishlike skin and their legs end in fins.  It is likely that the first of this race were human fishermen who were unlucky enough to anger some fish god.  The fish god then cursed the fishermen to live forever under the surface and thus the Tritons were born."
+spr1 "triton_scout.tga"
+armor                          0 # Armor.
+hp                             7 # Hit Points.
+str                            4 # Strength.
+mor                            4 # Morale.
+mr                             4 # Magic Resistance.
+rank                           1 # Front rank.
+meleeweapon       4294967296 125 # Net: Special damage: Stuck in Net.
+meleeweapon                1   4 # Spear: d5 Pierce damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+noland                           # Aquatic: The monster cannot move onto land.
+human                            # Vulnerable to weapons and spells that only affect humans; leaves a humanoid corpse on death.
+shield                           # Reduces damage from most weapons by 0-1; 0-2 against ranged weapons.
+allitemslots                     # Has the full set of item slots.
+acutesenses
+nobootslots                      # Has no boot slots.
+
+
+
+
+
 newmonster    "Ichtyid Pearl Mage"                                           #  681
 descr "Ichtyids are large fish beings with legs and arms that make them able to operate on land.  They have the strength and size of a fish, but despite this they are not quite as stupid as a normal fish and are able to utilize tools and weapons.  Ichtyids often raid fishing villages and try to steal all the tools and supplies they can get hold of.  The raiders are not easy to kill, but the reward for killing them is not bad either.  A smoked Ichtyid is a real treat and is large enough for a small village to feast on."
 # sprite number            32012
@@ -417,6 +440,10 @@ gathergems
 seegems
 gatherherbs
 noleader
+fast
+terrstealth -43
+acutesenses
+farsightsea
 
 newmonster    "Ichtyid Wayfinder"                                           #  681
 descr "Ichtyids are large fish beings with legs and arms that make them able to operate on land.  They have the strength and size of a fish, but despite this they are not quite as stupid as a normal fish and are able to utilize tools and weapons.  Ichtyids often raid fishing villages and try to steal all the tools and supplies they can get hold of.  The raiders are not easy to kill, but the reward for killing them is not bad either.  A smoked Ichtyid is a real treat and is large enough for a small village to feast on."
@@ -438,6 +465,46 @@ animal                           # Vulnerable to weapons and spells that only af
 power -2 1
 mastery -1
 noleader
+fast
+terrstealth -43
+acutesenses
+farsightsea
+
+
+newmonster    "Triton Rider"    
+spr1 "triton_rider.tga"
+descr "These Elite Triton Warriors have learnts to ride the noble Hippocampus to great effect in battle."
+armor                          3 # Armor.
+hp                            22 # Hit Points.
+str                            5 # Strength.
+mor                            8 # Morale.
+mr                             8 # Magic Resistance.
+rank                           1 # Front rank.
+meleeweapon                8  26 # Trident: d15 Pierce damage.
+meleeweaponbonus                7 519 # Alicorn: d7 Pierce damage.
+meleeweaponbonus                4  95 # Hoof: d4 Blunt damage.
+fast                             # The monster has 4 AP and also moves twice on the battlefield per turn in combat.
+poisonres                    100 # Poison immunity.
+human                            # Vulnerable to weapons and spells that only affect humans; leaves a humanoid corpse on death.
+fastheal                         # Heals all wounds in two months at most. Also heals permanent afflictions over time, but not as quickly as with regeneration.
+shield                           # Reduces damage from most weapons by 0-1; 0-2 against ranged weapons.
+allitemslots                     # Has the full set of item slots.
+nobootslots                      # Has no boot slots.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+forest2                          # Likes forests (including ancient forests) (if an independent or stupid commander, will not move more than 1 square away from its liked terrains).
+noland                           # Aquatic: The monster cannot move onto land.
+
+
+
+
+
+
+
+
+
+
+
+
 
 newclass
 setclassname "Triton Lord"
@@ -475,6 +542,12 @@ recxcost 8 10
 addunitrec "Kelpman" 100 5 25 0 0
 recxcost 8 25
 
+addunitrec "Triton Rider" 100 5 50 0 0
+recxcost 8 5
+reclimiter "=Hippocampus"
+
+
+
 addmercrec "Ichtyid Scout" 10 1 15 0 0
 addmercrec "Bishop Fish" 10 1 50 0 0
 recxcost 8 15
@@ -498,18 +571,6 @@ newunits 24 "Siren"
 randloc 0 311
 alterterrain 218
 newunits -2 "c*Triton Lord & c*Bishop of the Seas & 5*Triton & 5*Ichtyid Raider & 5*Triton Warrior"
-endevent
-
-playerevent
-+turnnbr -1
-+class -2 "Triton Lord"
-+ownsloctarg -2 218
-scatterloc 2
--terrain 218
-# alterterrain 45
-alterterrain 335
-killsquare
-newunits -2 "Sea Dog"
 endevent
 
 playerevent
