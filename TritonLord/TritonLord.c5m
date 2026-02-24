@@ -17,7 +17,7 @@ newritual     "Ritual of Mastery"                                         #  92
 descr "This ritual grants the caster a new second level ritual.  If the caster is currently unable to cast second level rituals, it will be leveled up as well."
 level                  1
 cost              2  150 # 150 Fungus
-terr                 -311 # Required terrain: Kelp Forest
+terr                 311 # Required terrain: Kelp Forest
 newrit                 2 # Caster will learn a new ritual of level 2.
 levelup                2 # Level up to new monster (determined by mastery command on monster) if below level 2.
 soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
@@ -29,7 +29,7 @@ newritual     "Ritual of Grand Mastery"                                   #  93
 descr "This ritual grants the caster a new third level ritual.  If the caster is currently unable to cast third level rituals, it will be leveled up as well."
 level                  2
 cost              2  600 # 600 Fungus
-terr                 -311 # Required terrain: Kelp Forest
+terr                 311 # Required terrain: Kelp Forest
 newrit                 3 # Caster will learn a new ritual of level 3.
 levelup                3 # Level up to new monster (determined by mastery command on monster) if below level 3.
 soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
@@ -52,7 +52,6 @@ addstring     "Siren"
 
 newritual     "Sea Eye"                                                   #  97
 descr "All waters are connected in a way that lets the Priest locate them with the help of magic.  This ritual will locate a Kelp Forest that was previously unknown to the Priest."
-ritpow                 4 # Witchery
 level                  1
 cost              2   10 # 10 Fungus
 newlocplanes         311 # Sets target location to a random terrain of this type, trying to find an unknown location first, going to other planes if necessary (but not Hades): swamp/bog.
@@ -63,7 +62,6 @@ closewin                 # Closes cast ritual window.
 
 newritual     "Major Summoning"                                           #  98
 descr "With this ritual the Priest will brew a decoction that is used to summon and control some of the more powerful creatures from the ancient days of Elysium."
-ritpow                 4 # Witcher
 level                  2
 cost              2   75 # 75 Fungus
 terr                 -43 # Required terrain: any land.
@@ -114,6 +112,103 @@ soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Su
 rebatelvl              3 # Ritual can be cast for half price if caster's power level is greater than or equal to 3.
 free                     # Always start with this ritual in addition to the others.
 nomonplayerreq "Triton High Lord"
+
+newritual     "Lesser Water Summoning"                                    # 215
+descr "This ritual will summon a water elemental and bind it to service.  Elementals are beings of pure elemental energies given life through magical rituals.  Sometimes the elemental energies used to create the elemental are diluted and impure.  This results in one or more elemental shards or lesser elementals instead."
+level                  1
+cost              8   25 # 25 Sapphires
+summoning                # The ritual will summon the monsters specified in a random string.
+sum0chance            25 # % chance to summon first string instead of a random string among the others.
+rebateterr20         -49 # Ritual is 25% (NOT 20%!) cheaper in this terrain: water plane citadel.
+addstring     "Water Elemental"
+addstring     "1d4+1*Lesser Water"
+
+newritual     "Greater Water Summoning"                                   # 224
+descr "This ritual summons a few beings from the Elemental Plane of Water and ice and enables the Triton to control them."
+level                  2
+cost              8   56 # 56 Sapphires
+summoning                # The ritual will summon the monsters specified in a random string.
+rebateterr20         -49 # Ritual is 25% (NOT 20%!) cheaper in this terrain: water plane citadel.
+addstring     "1d3+2*Undine"
+addstring     "4d6*Wave Warrior"
+addstring     "(-42)2d4+1*Winter Wolf"     # This string will only be included in terrain: any land.
+addstring     "(-17)1d2+1*Lake Troll"     # This string will only be included in terrain: near water.
+addstring     "(-17)1d2*Lake Troll Warrior"     # This string will only be included in terrain: near water.
+
+newritual     "Summon Champion of Water"                                  # 226
+descr "This ritual summons a commander from the Elemental Plane of Water that will help the Tritons conquer the world."
+level                  2
+cost              8   56 # 56 Sapphires
+summoning                # The ritual will summon the monsters specified in a random string.
+sum0chance            66 # % chance to summon first string instead of a random string among the others.
+addstring     "c*Champion of Waves"
+addstring     "(-42)c*Frost Giant"     # This string will only be included in terrain: any land.
+addstring     "(-43)c*Sea Giant"     # This string will only be included in terrain: any sea.
+addstring     "(-17)c*Lake Troll King"     # This string will only be included in terrain: near water.
+
+
+newritual     "Summon Mist Warrior"                                       # 227
+descr "This ritual summons a band of para-elementals and binds them into servitude. Para-elementals gain power from two elements and are generally more powerful than the pure elemental soldiers."
+level                  2
+cost              8   28 # 50 Sapphires
+terr                 -42 # Required terrain: any land.
+summoning                # The ritual will summon the monsters specified in a random string.
+rarestart                # Reduced chance of starting with this ritual.
+nexttoo                  # Learn the next ritual too when learning this one.
+addstring     "3d4*Mist Warrior"
+
+newritual     "Maelstrom"                                                 # 229
+descr "The caster creates a maelstrom of water and arcane power, sucking his entire army down beyond the deepest reaches of the sea and into the elemental plane of water. Unless led by a truly powerful mage the army will probably never return to Elysium."
+level                  2
+cost              8   45 # 45 Sapphires
+terr                  68 # Required terrain: Deep Sea.
+planereq               0 # Can only be cast on this plane: Elysium.
+setplane               8 # Randomloc etc. will use this plane: Elemental Planes.
+randterrloc           68 # Sets target location to a random terrain of this type on the active plane: Deep Sea.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+teleportloc            2 # Teleport caster's entire army to target location.
+centerloc                # Center screen on target location.
+closewin                 # Closes cast ritual window.
+airare                -1 # AI will never cast this ritual.
+rarestart                # Reduced chance of starting with this ritual.
+
+newritual     "Enchant Lake"                                              # 230
+descr "The caster enters a lake and enchants it with the gifts of Limne, Elemental Queen of Lakes. The lake will never freeze over and will continuously produce sapphires."
+level                  2
+cost              8   23 # 23 Sapphires
+terr                 -96 # Required terrain: lakes.
+alterloc             295 # Change target location's terrain to: Enchanted Lake.
+soundfx               97 # Sound effect when the ritual is cast: (Sleep).
+rarestart                # Reduced chance of starting with this ritual.
+
+newritual     "Summon Queen of Water"                                     # 246
+descr "The Queen of Water is a powerful elemental being and a ruler of the Elemental Plane of Water.  She is capable of performing Water rituals."
+level                  3
+cost              8  250 # 250 Sapphires
+summoning                # The ritual will summon the monsters specified in a random string.
+aimaxcast              3 # An AI player will never cast this ritual more than 3 times in a game.
+addstring     "c*Queen of the Lake"     # Unique (Limne).
+addstring     "c*Queen of the Deeps"     # Unique (Bathusma).
+addstring     "c*Queen of the Sea"     # Unique (Thalassa).
+
+newritual     "Primal Maelstrom"                                          # 249
+descr "The caster creates a maelstrom in the elemental plane of water, sucking his entire army down to reemerge in the deeper seas of Elysium."
+level                  3
+cost              8   50 # 50 Sapphires
+terr                  68 # Required terrain: Deep Sea.
+planereq               8 # Can only be cast on this plane: Elemental Planes.
+setplane               0 # Randomloc etc. will use this plane: Elysium.
+randterrloc           68 # Sets target location to a random terrain of this type on the active plane: Deep Sea.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+teleportloc            2 # Teleport caster's entire army to target location.
+centerloc                # Center screen on target location.
+closewin                 # Closes cast ritual window.
+airare                -1 # AI will never cast this ritual.
+rarestart                # Reduced chance of starting with this ritual.
+
+
+
+
 
 
 
@@ -277,14 +372,17 @@ addunitrec "Triton" 100 5 50 0 0
 addunitrec "Triton Trooper" 100 5 50 0 0
 recxcost 8 5
 
-addunitrec "Ichtyid Raider" 100 5 25 0 0
-addunitrec "Ichtyid Scout" 10 1 25 0 0
-addunitrec "Ichtyid Warrior" 100 5 25 0 0
+addunitrec "Ichtyid Raider" 100 5 50 0 0
 recxcost 8 5
+addunitrec "Ichtyid Warrior" 100 5 50 0 0
+recxcost 8 10
 
 addunitrec "Kelpman" 100 5 25 0 0
 recxcost 8 25
 
+addmercrec "Ichtyid Scout" 10 1 15 0 0
+addmercrec "Triton Lord" 10 1 75 0 0
+addmercrec "Bishop of the Seas" 10 1 50 0 0
 
 playerevent
 +turnnbr -1
@@ -296,7 +394,7 @@ newunits 24 "Siren"
 # randloc 0 68
 randloc 0 311
 alterterrain 218
-newunits -2 "c*Triton Lord & c*Bishop of the Seas & 5*Triton & 5*Ichtyid Raider & 5*Ichtyid Warrior"
+newunits -2 "c*Triton Lord & c*Bishop of the Seas & 5*Triton & 5*Ichtyid Raider & 5*Triton Warrior"
 endevent
 
 playerevent
@@ -308,6 +406,29 @@ scatterloc 2
 # alterterrain 45
 alterterrain 335
 killsquare
+newunits -1 "Triton"
+endevent
+
+playerevent
++turnnbr -1
++class -2 "Triton Lord"
++ownsloctarg -2 218
+scatterloc 2
+-terrain 218
+# alterterrain 45
+alterterrain 335
+killsquare
+newunits -1 "Triton"
+endevent
+
+playerevent
++turnnbr -1
++class -2 "Triton Lord"
++ownsloctarg -2 218
+scatterloc 2
+-terrain 218
+killsquare
+alterterrain 311
 newunits -1 "Triton"
 endevent
 
