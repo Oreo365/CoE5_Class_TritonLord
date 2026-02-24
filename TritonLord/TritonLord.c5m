@@ -416,6 +416,7 @@ allitemslots
 gathergems
 seegems
 gatherherbs
+noleader
 
 newmonster    "Ichtyid Wayfinder"                                           #  681
 descr "Ichtyids are large fish beings with legs and arms that make them able to operate on land.  They have the strength and size of a fish, but despite this they are not quite as stupid as a normal fish and are able to utilize tools and weapons.  Ichtyids often raid fishing villages and try to steal all the tools and supplies they can get hold of.  The raiders are not easy to kill, but the reward for killing them is not bad either.  A smoked Ichtyid is a real treat and is large enough for a small village to feast on."
@@ -436,6 +437,7 @@ desert3                          # Hates deserts.
 animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
 power -2 1
 mastery -1
+noleader
 
 newclass
 setclassname "Triton Lord"
@@ -477,11 +479,11 @@ addmercrec "Ichtyid Scout" 10 1 15 0 0
 addmercrec "Bishop Fish" 10 1 50 0 0
 recxcost 8 15
 templerec
-addcomrec "c*Triton Lord" 10 75 0 0
+addcomrec "Triton Lord" 10 75 0 0
 recxcost 8 25
 reclimiter "-Triton Lord"
-addcomrec "c*Bishop of the Seas" 10 50 0 0
-addcomrec "c*Ichtyid Wayfinder" 100 50 0 0
+addcomrec "Bishop of the Seas" 10 50 0 0
+addcomrec "Ichtyid Wayfinder" 10 50 0 0
 templerec
 recxcost 8 5
 
