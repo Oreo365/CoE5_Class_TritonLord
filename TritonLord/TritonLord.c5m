@@ -1,7 +1,45 @@
 icon "TritonLord.tga"
 description "Adds a new playable class, the Triton Lord."
 
+newritpow #OceanWayfinding
 
+newritual     "Sea Path"                                                  # 104
+descr "This ritual enables the Wayfinder to travel through the paths that connect all the seas together.  The Wayfinder and her entire army will travel instantly from one sea to another sea of her choosing."
+level                  2
+cost              2  150 # 150 Herbs
+cost 8 25 # 25 Sapphires
+terr                 68 # Required terrain: swamp/bog.
+multiplane             2 # chooseloc and similar can select locations on: all planes.
+chooseterrloc        68 # Player chooses the target location, which must have this terrain: swamp/bog.
+teleportloc            2 # Teleport caster's entire army to target location.
+soundfx               23 # Sound effect when the ritual is cast: airduct.smp.
+airare                -1 # AI will never cast this ritual.
+closewin                 # Closes cast ritual window.
+apcost                 2 # Actual AP cost: 3.
+rarestart                # Reduced chance of starting with this ritual.
+
+newritual     "Wayfinder's Eye"                                                   #  97
+descr "All oceans are connected in a way that lets the Wayfinder locate them with the help of magic.  This ritual will locate a Deep Sea Gem Deposit that was previously unknown to the Wayfinder."
+level                  1
+cost              2   5 # 5 Fungus
+cost 8 5 # 5 Sapphire
+newlocplanes         170 # Sets target location to a random terrain of this type, trying to find an unknown location first, going to other planes if necessary (but not Hades): swamp/bog.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+scryloc                5 # Scry radius 0.5 around target location.
+airare                 5 # Only 5% of normal chance that AI will cast this ritual.
+closewin                 # Closes cast ritual window.
+
+newritual     "Ritual of Mastery"                                         #  92
+descr "This ritual grants the caster a new second level ritual.  If the caster is currently unable to cast second level rituals, it will be leveled up as well."
+level                  1
+cost              2  50 # 50 Fungus
+cost 8 25
+terr                 68 # Required terrain: Deep Sea
+newrit                 2 # Caster will learn a new ritual of level 2.
+levelup                2 # Level up to new monster (determined by mastery command on monster) if below level 2.
+soundfx               57 # Sound effect when the ritual is cast: orchhit.smp (Summoning).
+rebatelvl              2 # Ritual can be cast for half price if caster's power level is greater than or equal to 2.
+free                     # Always start with this ritual in addition to the others.
 
 newritpow #Ocean Tribal
 newritual     "Lesser Ritual of Mastery"                                  #  91
@@ -64,18 +102,24 @@ newritual     "Major Summoning"                                           #  98
 descr "With this ritual the Priest will brew a decoction that is used to summon and control some of the more powerful creatures from the ancient days of Elysium."
 level                  2
 cost              2   75 # 75 Fungus
-terr                 -43 # Required terrain: any land.
+terr                 -43 # Required terrain: any water
 summoning                # The ritual will summon the monsters specified in a random string.
 addstring     "2d6*Lobster"
 addstring     "1d3*Giant Crab"
 addstring     "Asp Turtle"
+addstring     "Kraken"
+
+
+newritual     Greater Summoning"                                           #  98
+descr "With this ritual the Priest will brew a decoction that is used to summon and control the most powerful creatures from the ancient days of Elysium."
+level                  3
+cost              2   150 # 150 Fungus
+terr                 -43 # Required terrain: any water
+summoning                # The ritual will summon the monsters specified in a random string.
 addstring     "Monster of the Deep"
 addstring     "Monster Fish"
-addstring     "Kraken"
-addstring     "Giant Jellyfish"
+addstring     "1d2*Giant Jellyfish"
 addstring     "Sea Dragon"
-
-
 
 
 
@@ -225,7 +269,7 @@ str                            7 # Strength.
 mor                            6 # Morale.
 mr                             8 # Magic Resistance.
 rank                          -1 # Back rank.
-spellweapon                4   2 # Hydromancy at level 2.
+spellweapon                4   3 # Hydromancy at level 2.
 meleeweapon                8  26 # Trident: d15 Pierce damage.
 water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
 noland                           # Aquatic: The monster cannot move onto land.
@@ -270,7 +314,7 @@ str                            5 # Strength.
 mor                            4 # Morale.
 mr                             7 # Magic Resistance.
 rank                          -1 # Back rank.
-spellweapon               25   1 # Prayers at level 1.
+spellweapon               25   3 # Prayers at level 1.
 meleeweapon                1   0 # Fist: d2 Blunt damage.
 water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
 desert3                          # Hates deserts.
@@ -294,7 +338,7 @@ str                            5 # Strength.
 mor                            4 # Morale.
 mr                             7 # Magic Resistance.
 rank                          -1 # Back rank.
-spellweapon               25   1 # Prayers at level 1.
+spellweapon               25   2 # Prayers at level 1.
 meleeweapon                1   0 # Fist: d2 Blunt damage.
 water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
 desert3                          # Hates deserts.
@@ -349,6 +393,50 @@ desert3                          # Hates deserts.
 animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
 acutesenses
 
+newmonster    "Ichtyid Pearl Mage"                                           #  681
+descr "Ichtyids are large fish beings with legs and arms that make them able to operate on land.  They have the strength and size of a fish, but despite this they are not quite as stupid as a normal fish and are able to utilize tools and weapons.  Ichtyids often raid fishing villages and try to steal all the tools and supplies they can get hold of.  The raiders are not easy to kill, but the reward for killing them is not bad either.  A smoked Ichtyid is a real treat and is large enough for a small village to feast on."
+# sprite number            32012
+spr1 "ichtyid_pearl_mage.tga"
+armor                          0 # Armor.
+hp                            11 # Hit Points.
+str                            5 # Strength.
+mor                            5 # Morale.
+mr                             3 # Magic Resistance.
+rank                           1 # Front rank.
+meleeweapon       4294967296 125 # Net: Special damage: Stuck in Net.
+meleeweapon                1   4 # Spear: d5 Pierce damage.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+coastal                          # Always stays within 1 square (including diagonals) of both land and water.
+desert3                          # Hates deserts.
+animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
+power -2 2
+spellweapon                4   2 # Hydromancy at level 2.
+spellweapon               25   1 # Prayers at level 1.
+allitemslots
+gathergems
+seegems
+gatherherbs
+
+newmonster    "Ichtyid Wayfinder"                                           #  681
+descr "Ichtyids are large fish beings with legs and arms that make them able to operate on land.  They have the strength and size of a fish, but despite this they are not quite as stupid as a normal fish and are able to utilize tools and weapons.  Ichtyids often raid fishing villages and try to steal all the tools and supplies they can get hold of.  The raiders are not easy to kill, but the reward for killing them is not bad either.  A smoked Ichtyid is a real treat and is large enough for a small village to feast on."
+# sprite number            32012
+spr1 "ichtyid_pearl_mage.tga"
+armor                          0 # Armor.
+hp                            11 # Hit Points.
+str                            5 # Strength.
+mor                            5 # Morale.
+mr                             3 # Magic Resistance.
+rank                           1 # Front rank.
+meleeweapon       4294967296 125 # Net: Special damage: Stuck in Net.
+meleeweapon                1   4 # Spear: d5 Pierce damage.
+spellweapon                4   1 # Hydromancy at level 1.
+water                            # Amphibian: The monster can enter water squares and is immune to drowning damage.
+coastal                          # Always stays within 1 square (including diagonals) of both land and water.
+desert3                          # Hates deserts.
+animal                           # Vulnerable to weapons and spells that only affect animals; leaves an animal corpse on death.
+power -2 1
+mastery -1
+
 newclass
 setclassname "Triton Lord"
 classdescr "Once cursed by the Gods of the Fish to be trapped within the Oceans, it is time to rule the lands once more."
@@ -378,15 +466,24 @@ addunitrec "Triton Trooper" 100 5 50 0 0
 recxcost 8 5
 
 addunitrec "Ichtyid Raider" 100 5 50 0 0
-addunitrec "Ichtyid Warrior" 100 5 50 0 0
 recxcost 8 5
+addunitrec "Ichtyid Warrior" 100 5 50 0 0
+recxcost 8 10
 
 addunitrec "Kelpman" 100 5 25 0 0
 recxcost 8 25
 
 addmercrec "Ichtyid Scout" 10 1 15 0 0
-addmercrec "c*Triton Lord" 10 1 75 0 0
-addmercrec "c*Bishop of the Seas" 10 1 50 0 0
+addmercrec "Bishop Fish" 10 1 50 0 0
+recxcost 8 15
+templerec
+addcomrec "c*Triton Lord" 10 75 0 0
+recxcost 8 25
+reclimiter "-Triton Lord"
+addcomrec "c*Bishop of the Seas" 10 50 0 0
+addcomrec "c*Ichtyid Wayfinder" 100 50 0 0
+templerec
+recxcost 8 5
 
 playerevent
 +turnnbr -1
