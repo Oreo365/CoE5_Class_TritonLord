@@ -235,6 +235,7 @@ gathergems
 seegems
 gatherherbs
 farsightsea
+shipmove
 
 newmonster    "Triton Lord"
 descr "The Tritons are almost human in appearance, but they have a fishlike skin and their legs end in fins.  It is likely that the first of this race were human fishermen who were unlucky enough to anger some fish god.  The fish god then cursed the fishermen to live forever under the surface and thus the Tritons were born."
@@ -257,6 +258,7 @@ gathergems
 seegems
 gatherherbs
 farsightsea
+shipmove
 
 newmonster    "Herald of the Seas"                                              #  684
 descr "Apparently the fishes also have an organized religion in order to worship their fish god in the proper way.  The Bishop of the Seas is the proof of this and it acts like the fish god's representative in Elysium, freeing up the busy fish god to deal with more important matters."
@@ -280,6 +282,7 @@ allitemslots
 gathergems
 seegems
 gatherherbs
+shipmove
 
 newmonster    "Cardinal of the Seas"                                              #  684
 descr "Apparently the fishes also have an organized religion in order to worship their fish god in the proper way.  The Bishop of the Seas is the proof of this and it acts like the fish god's representative in Elysium, freeing up the busy fish god to deal with more important matters."
@@ -303,6 +306,7 @@ allitemslots
 gathergems
 seegems
 gatherherbs
+shipmove
 
 newmonster    "Bishop of the Seas"                                              #  684
 descr "Apparently the fishes also have an organized religion in order to worship their fish god in the proper way.  The Bishop of the Seas is the proof of this and it acts like the fish god's representative in Elysium, freeing up the busy fish god to deal with more important matters."
@@ -325,6 +329,7 @@ allitemslots
 gathergems
 seegems
 gatherherbs
+shipmove
 
 newmonster    "Ichtyid Scout"                                           #  681
 descr "Ichtyids are large fish beings with legs and arms that make them able to operate on land.  They have the strength and size of a fish, but despite this they are not quite as stupid as a normal fish and are able to utilize tools and weapons.  Ichtyids often raid fishing villages and try to steal all the tools and supplies they can get hold of.  The raiders are not easy to kill, but the reward for killing them is not bad either.  A smoked Ichtyid is a real treat and is large enough for a small village to feast on."
@@ -373,16 +378,15 @@ addunitrec "Triton Trooper" 100 5 50 0 0
 recxcost 8 5
 
 addunitrec "Ichtyid Raider" 100 5 50 0 0
-recxcost 8 5
 addunitrec "Ichtyid Warrior" 100 5 50 0 0
-recxcost 8 10
+recxcost 8 5
 
 addunitrec "Kelpman" 100 5 25 0 0
 recxcost 8 25
 
 addmercrec "Ichtyid Scout" 10 1 15 0 0
-addmercrec "Triton Lord" 10 1 75 0 0
-addmercrec "Bishop of the Seas" 10 1 50 0 0
+addmercrec "c*Triton Lord" 10 1 75 0 0
+addmercrec "c*Bishop of the Seas" 10 1 50 0 0
 
 playerevent
 +turnnbr -1
@@ -406,7 +410,7 @@ scatterloc 2
 # alterterrain 45
 alterterrain 335
 killsquare
-newunits -1 "Triton"
+newunits -2 "Sea Dog"
 endevent
 
 playerevent
@@ -418,7 +422,7 @@ scatterloc 2
 # alterterrain 45
 alterterrain 335
 killsquare
-newunits -1 "Triton"
+newunits -2 "Sea Dog"
 endevent
 
 playerevent
@@ -429,7 +433,7 @@ scatterloc 2
 -terrain 218
 killsquare
 alterterrain 311
-newunits -1 "Triton"
+newunits -2 "Sea Dog"
 endevent
 
 playerevent
@@ -440,5 +444,5 @@ scatterloc 2
 -terrain 218
 killsquare
 alterterrain 311
-newunits -1 "Triton"
+newunits -2 "Sea Dog"
 endevent
