@@ -109,6 +109,14 @@ addstring     "1d3*Giant Crab"
 addstring     "Asp Turtle"
 addstring     "Kraken"
 
+newritual     "Summon Sea Steeds"                                           #  94
+descr "With this ritual the Priest will brew a decoction that is used to summon and control some creatures from the ancient days of Elysium."
+level                  2
+cost              2   50 # 50 Fungus
+terr                 311 # Required terrain: Kelp Forest
+summoning                # The ritual will summon the monsters specified in a random string.
+addstring     "1d6+4*Hippocampus"
+
 
 newritual     Greater Summoning"                                           #  98
 descr "With this ritual the Priest will brew a decoction that is used to summon and control the most powerful creatures from the ancient days of Elysium."
@@ -259,7 +267,7 @@ rarestart                # Reduced chance of starting with this ritual.
 
 
 
-newmonster    "Triton High Lord"
+newmonster    "Pearl King"
 descr "The Tritons are almost human in appearance, but they have a fishlike skin and their legs end in fins.  It is likely that the first of this race were human fishermen who were unlucky enough to anger some fish god.  The fish god then cursed the fishermen to live forever under the surface and thus the Tritons were born."
 # sprite number            32026
 spr1 "triton_high_lord.tga"
@@ -540,7 +548,7 @@ addunitrec "Ichtyid Warrior" 100 5 50 0 0
 recxcost 8 10
 
 addunitrec "Kelpman" 100 5 25 0 0
-recxcost 8 25
+recxcost 3 25
 
 addunitrec "Triton Rider" 100 5 50 0 0
 recxcost 8 5
@@ -548,7 +556,8 @@ reclimiter "=Hippocampus"
 
 
 
-addmercrec "Ichtyid Scout" 10 1 15 0 0
+addmercrec "Ichtyid Scout" 10 1 25 0 0
+addmercrec "Triton Scout" 10 1 10 0 0
 addmercrec "Bishop Fish" 10 1 50 0 0
 recxcost 8 15
 templerec
