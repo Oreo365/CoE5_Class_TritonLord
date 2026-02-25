@@ -548,7 +548,7 @@ addunitrec "Ichtyid Warrior" 100 5 50 0 0
 recxcost 8 10
 
 addunitrec "Kelpman" 100 5 25 0 0
-recxcost 3 25
+recxcost 2 25
 
 addunitrec "Triton Rider" 100 5 50 0 0
 recxcost 8 5
@@ -578,6 +578,7 @@ alterterrain 10
 newunits 24 "Siren"
 # randloc 0 68
 randloc 0 311
+# randloc 0 170
 alterterrain 218
 killsquare
 newunits -2 "c*Triton Lord & c*Bishop of the Seas & 5*Triton & 5*Ichtyid Raider & 5*Triton Warrior"
@@ -593,6 +594,7 @@ scatterloc 2
 alterterrain 335
 killsquare
 newunits -2 "Sea Dog"
+killsquare
 endevent
 
 playerevent
@@ -604,6 +606,7 @@ scatterloc 2
 killsquare
 alterterrain 311
 newunits -2 "Sea Dog"
+killsquare
 endevent
 
 playerevent
@@ -615,5 +618,5 @@ scatterloc 2
 killsquare
 alterterrain 311
 newunits -2 "Sea Dog"
+killsquare
 endevent
-
