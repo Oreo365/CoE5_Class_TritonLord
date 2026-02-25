@@ -579,6 +579,7 @@ newunits 24 "Siren"
 # randloc 0 68
 randloc 0 311
 alterterrain 218
+Killsquare
 newunits -2 "c*Triton Lord & c*Bishop of the Seas & 5*Triton & 5*Ichtyid Raider & 5*Triton Warrior"
 endevent
 
