@@ -517,7 +517,7 @@ noland                           # Aquatic: The monster cannot move onto land.
 newclass
 setclassname "Triton Lord"
 classdescr "Once cursed by the Gods of the Fish to be trapped within the Oceans, it is time to rule the lands once more."
-classabdescr "Utilizes Hydromancy summoning alongside water-based movement for a unique playstyle."
+classabdescr "Tritons are waterbound but able to summon units that may go on land. ^ Priests may go on land, but summon waterbound units. ^ Utilize Wayfinders and Pearl Mages to quickly navigate the Ocean."
 hometerr 218
 
 clearstartterr
@@ -620,3 +620,4 @@ alterterrain 311
 newunits -2 "Sea Dog"
 killsquare
 endevent
+
